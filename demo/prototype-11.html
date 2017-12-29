@@ -1,0 +1,22 @@
+<meta charset="utf-8">
+<script>
+    ;(function(){
+        var _this = this
+
+        function Dog(name){
+            this.name = name;
+            this.getName = function(){
+                return this.name;
+            }
+        }
+
+        var dog = new Dog('kara');
+        console.log(dog.getName());
+
+        this.Dog = Dog;
+    })();
+
+    var dog = new Dog('sox');
+    console.log(dog.getName());
+
+</script>

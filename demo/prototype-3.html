@@ -1,0 +1,47 @@
+<meta charset="utf-8">
+<script>
+	var Namespace = {
+		register : function(package){
+				var arr = package.split('.');
+				var namespace = '';
+				if (arr.length>0){
+					for (var i=0;i<arr.length;i++){
+						if (i==0){
+							namespace = arr[i];
+						}else{
+							namespace = namespace + '.' + arr[i];
+						}
+						eval('if (typeof(' + namespace + ')=="undefined") ' + namespace + '= new Object();');
+					}	
+				}
+		}
+	}
+	
+	Namespace.register('com.eastrobot.domain');
+	
+	com.eastrobot.domain.Dog = (function(){
+		
+		function Dog(name, age){
+				this.name = name;
+				this.age = age;
+				
+				this.say = function(){
+					console.log(this.name + '说Wang');	
+				}
+		}
+		
+		return Dog;
+	})();
+	
+	
+	var dog = new com.eastrobot.domain.Dog('旺财', 3);
+	dog.say();
+	
+	
+	
+
+	Namespace.register('org.apache');
+	
+	console.log(org.apache);
+	
+</script>

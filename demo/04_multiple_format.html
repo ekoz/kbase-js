@@ -1,0 +1,46 @@
+<meta charset="utf-8">
+<script>
+	var Namespace = {
+		register : function(package){
+				var arr = package.split('.');
+				var namespace = '';
+				if (arr.length>0){
+					for (var i=0;i<arr.length;i++){
+						if (i==0){
+							namespace = arr[i];
+						}else{
+							namespace = namespace + '.' + arr[i];
+						}
+						eval('if (typeof(' + namespace + ')=="undefined") ' + namespace + '= new Object();');
+					}	
+				}
+		}
+	}
+	
+	Namespace.register('com.eastrobot.domain');
+	
+	
+	com.eastrobot.domain = (function(){
+		
+		function Person(name, sex){
+			this.name = name;
+			this.sex = sex;	
+		}
+		function Man(name){
+			this.name = name;
+			this.sex = '男';	
+		}
+		Man.prototype.toString = function(){
+			console.log(this.name + '的性别是' + this.sex);	
+		}
+		
+		return {
+			Person: Person,
+			Man: Man	
+		}
+	})();
+	
+	
+	var ekoz = new com.eastrobot.domain.Man('占钊');
+	ekoz.toString();
+</script>

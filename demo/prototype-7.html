@@ -1,0 +1,59 @@
+<meta charset="utf-8">
+<script>
+	
+    var fun = new Function();
+    console.log(fun.prototype);
+
+    function Dog(name){
+        this.name = name;
+    }
+    Dog.prototype.getName = function(){
+        return this.name;
+    }
+    var dog = new Dog('kara');
+    console.log(Dog.prototype);
+    console.log((dog.getName()));
+
+    console.log(Function);
+
+    var Cat = new Function('name', 'this.name = name');
+    Cat.prototype.setName = function(name){
+        this.name = name;
+    }
+    Cat.prototype.getName = function(){
+        return this.name;
+    }
+
+    var cat = new Cat('小猫咪');
+    console.log(cat.getName());
+    cat.setName('Baby Cat');
+    console.log(cat.getName());
+
+
+    /*var fn1 = new Function('a', 'b', 'return a+b');
+    console.log(fn1(1, 4));
+    console.log(fn1.prototype);
+    fn1.prototype.getName = function(){
+        return '1';
+    }
+    console.log(fn1.prototype);
+    var fn2 = new fn1(1, 6);
+    console.log(fn2.getName())
+
+    function add(a, b){
+        this.a = a;
+        this.b = b;
+        return a+b;
+    }
+    var a1 = new add(3, 4);
+    add.prototype.getResult = function(){
+        console.log(b);
+        console.log(a);
+        return b-a;
+    }
+    console.log(a1);
+    console.log(add(1, 5))
+    console.log(a1.getResult());*/
+
+
+</script>

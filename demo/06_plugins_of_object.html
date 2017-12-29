@@ -1,0 +1,22 @@
+<meta charset="utf-8">
+<script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+;(function(w, $){
+    $.extend({
+        strLeft: function(str, split){
+            var _this = str;
+            if (_this==undefined) return '';
+            if (_this.indexOf(split)!=-1){
+                return _this.substring(0, _this.indexOf(split));
+            }else{
+                return '';
+            }
+        }
+    });
+})(window, jQuery);
+
+var s = 'Hello world';
+var n = $.strLeft(s, ' ');
+console.log(n);
+
+</script>

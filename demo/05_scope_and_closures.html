@@ -1,0 +1,40 @@
+<meta charset="utf-8">
+<script>
+	
+
+	//构造函数
+	function Dog(name){
+		this.name = name;	
+	}
+	
+	Dog.prototype.getName = function(){
+		return this.name;
+	}
+	
+	Dog.prototype.setName = function(name){
+		this.name = name;
+	}
+	
+	;(function(){
+		
+		//实例
+		var dog = new Dog('huahua');
+		console.log(dog.getName());
+		
+		dog.setName('huajie');
+		console.log(dog.getName());
+		
+		Dog.prototype.getName = function(){
+			return this.name + '_' + this.name.length;
+		}
+		
+		Dog.age = 3;
+		console.log(dog.getName());
+		console.log(dog.age);
+
+		console.log(window);
+		console.log(this);
+		
+	})();
+
+</script>

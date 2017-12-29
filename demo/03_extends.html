@@ -1,0 +1,54 @@
+<meta charset="utf-8">
+<script>
+	//寄生组合继承
+	function Person(name, sex){
+		this.key = "PERSON";
+		this.name = name;
+		this.sex = sex;	
+		this.toString = function(){
+			console.log(this.name + '的性别是' + this.sex);	
+		}
+	}
+	
+	Person.prototype.sayHi = function(){
+		console.log('大家好，我是' + this.name);
+	}
+		
+	function Man(name){
+		Person.call(this, name, '男');
+	};
+	
+	/*
+	// 创建一个没有实例方法的类
+  var T = function(){};
+  //
+  T.prototype = Person.prototype;
+  //将实例作为子类的原型
+  Man.prototype = new T();
+  */
+
+    /*	var F = function(){};
+        F.prototype = Person.prototype;
+        Man.prototype = new F();
+        Man.prototype.constructor = Man;
+        */
+
+    function extend(Child, Parent) {
+        var F = function(){};
+        F.prototype = Parent.prototype;
+        Child.prototype = new F();
+        Child.prototype.constructor = Child;
+    }
+
+    extend(Man, Person);
+
+    var ekoz = new Man('ekozhan');
+    console.log(ekoz);
+    ekoz.toString();
+    console.log(ekoz.key);
+	
+	ekoz.sayHi();
+
+	//https://www.cnblogs.com/humin/p/4556820.html
+	
+</script>

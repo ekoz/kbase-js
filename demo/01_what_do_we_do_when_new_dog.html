@@ -1,0 +1,29 @@
+<meta charset="utf-8">
+<script>
+	function Dog(name){
+		this.name = name;	
+		this.toString = function(){
+			console.log(this.name + '是条狗狗');	
+		}
+	}
+	
+	/*
+	var kara = new Dog('卡拉');
+	kara.toString();*/
+	
+	//创建一个空对象{} kara
+	var kara = {};
+	//将Dog.prototype放置到kara的原型链顶端。即kara.__proto__指向 Dog.prototype
+	kara.__proto__ = Dog.prototype;
+	//
+	var result = Dog.call(kara, '卡拉');
+	//call && apply
+	
+	console.log(typeof(result));
+	result = typeof(result) === 'obj'? result : kara;
+	console.log(typeof(result));
+	console.log(kara);
+	kara.toString();
+	result.toString();
+	
+</script>
