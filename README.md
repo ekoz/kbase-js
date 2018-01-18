@@ -27,4 +27,11 @@ javascript自执行函数为什么要把 window 作为参数传进去？
 
 [$.fn.extend](demo/07_plugins_of_function.html)
 
+### 学习资料
+[汤姆大叔的博客](http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html)
+
+[js中__proto__和prototype的区别和关系？](https://www.zhihu.com/question/34183746/answer/58155878)
+
+[彻底深刻理解js原型链之prototype,__proto__以及constructor](https://zhuanlan.zhihu.com/p/25104580)
+
 
